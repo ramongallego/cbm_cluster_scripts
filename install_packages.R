@@ -1,0 +1,4 @@
+.libPaths( c( '/home/dabia/R/x86_64-pc-linux-gnu-library/4.2' , .libPaths() ) )
+print(.libPaths())
+options(repos = c(CRAN = "https://cloud.r-project.org"))
+remotes::install_github("ramongallego/eDNA_functions")

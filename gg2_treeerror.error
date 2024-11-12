@@ -1,0 +1,3 @@
+Fatal error: you must specify '--save', '--no-save' or '--vanilla'
+/ngs/microbios/resources/greengenes2/2024.09/gg2_tree.bash: line 26: syntax error near unexpected token `as'
+/ngs/microbios/resources/greengenes2/2024.09/gg2_tree.bash: line 26: `as<-c(1,1)'
