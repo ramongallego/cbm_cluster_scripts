@@ -31,7 +31,7 @@ awk -F'\t' -v COLNAME=2 -v VALUE="-1" '{if ($COLNAME != VALUE && $3 != "0") {pri
 | cutadapt -g "file:"${BARCODES_i5}";min_overlap=8" -o /dev/null --info-file "${OUTPUT_FOLDER}"/demult_temp.txt -j 0 -
 ## 
 echo "header,i5barcode" > "${OUTPUT_FOLDER}"/demult_i5.txt
-awk -F '\t' -v COLNAME=2 -v VALUE='-1' ' {if ($COLNAME != VALUE) print($1,$8)}' "${OUTPUT_FOLDER}"/demult_temp.txt >> "${OUTPUT_FOLDER}"/demult_i5.txt
+awk -F '\t' -v COLNAME=2 -v VALUE='-1' ' OFS="," {if ($COLNAME != VALUE) print($1,$8)}' "${OUTPUT_FOLDER}"/demult_temp.txt >> "${OUTPUT_FOLDER}"/demult_i5.txt
 
 cutadapt -a "REV="${REV_PRIMER_RC}";min_overlap=19"  "${OUTPUT_FOLDER}"/with_FWD.fq \
   --discard-untrimmed  -j 0 --report=minimal \
@@ -44,7 +44,7 @@ awk -F'\t' -v COLNAME=2 -v VALUE="-1" 'NR>1 {if ($COLNAME != VALUE) {printf ">%s
 
 echo "header,i7barcode" > "${OUTPUT_FOLDER}"/demult_i7.txt
 
-awk -F '\t' -v COLNAME=2 -v VALUE='-1' '{if ($COLNAME != VALUE) print ($1,$8)}' "${OUTPUT_FOLDER}"/demult_temp2.txt >> "${OUTPUT_FOLDER}"/demult_i7.txt
+awk -F '\t' -v COLNAME=2 -v VALUE='-1' ' OFS="," {if ($COLNAME != VALUE) print ($1,$8)}' "${OUTPUT_FOLDER}"/demult_temp2.txt >> "${OUTPUT_FOLDER}"/demult_i7.txt
 
 
 rm  "${OUTPUT_FOLDER}"/lens.txt

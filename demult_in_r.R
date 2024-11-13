@@ -8,14 +8,13 @@ input_folder <- arguments[1]
 dir.create(file.path(input_folder, "demult_files"))
 
 
-first_demult <- read_info_file(file = file.path(input_folder,"demulti5.txt")) |> 
-  select(Seq.id, i5=adap_name)
-second_demult<- read_info_file(file = file.path(input_folder,"demult_i7.txt")) |> 
-  select(Seq.id, i7=adap_name)
-PCR_products <- fastq_reader( file.path(input_folder,"with_BOTH.fq"), keepQ = T) |> 
-  separate(header, into = "Seq.id", sep = " ")
+first_demult <- read_csv(file = file.path(input_folder,"demulti5.txt")) 
+second_demult<- read_csv(file = file.path(input_folder,"demult_i7.txt")) 
+
+PCR_products <- fastq_reader( file.path(input_folder,"with_BOTH.fq"), keepQ = T) 
+
 metadata <- read_csv( file.path(input_folder,"metadata.csv")) |> 
-  select(Sample_Name, i7= I7_Index_ID, i5 = I5_Index_ID )
+  select(Sample_Name, i7barcode= I7_Index_ID, i5barcode = I5_Index_ID )
 
 inner_join(first_demult, second_demult) |> 
   inner_join(metadata) |> 
