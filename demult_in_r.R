@@ -26,5 +26,5 @@ inner_join(first_demult, second_demult) |>
     sequence = seq,    
     header = Seq.id, 
     Qscores = Qscores, 
-    file.out = file.path(input_folder,"demult_files", paste0("Sample_".x, ".fastq")))
+    file.out = file.path(input_folder,"demult_files", paste0("Sample_",.x, ".fastq")))
                               ))
