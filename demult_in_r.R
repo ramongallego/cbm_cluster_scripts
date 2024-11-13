@@ -8,7 +8,7 @@ input_folder <- arguments[1]
 dir.create(file.path(input_folder, "demult_files"))
 
 
-first_demult <- read_csv(file = file.path(input_folder,"demulti5.txt")) 
+first_demult <- read_csv(file = file.path(input_folder,"demult_i5.txt")) 
 second_demult<- read_csv(file = file.path(input_folder,"demult_i7.txt")) 
 
 PCR_products <- fastq_reader( file.path(input_folder,"with_BOTH.fq"), keepQ = T) 

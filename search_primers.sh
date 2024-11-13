@@ -58,4 +58,4 @@ seq_lens "${INPUT_FILE}" >>  "${OUTPUT_FOLDER}"/lens.txt
 
 ## Add the path to cbm/s Rscript vanilla executable
 
-/ngs/software/R/4.2.1-C7/bin/Rscript --vanilla /home/microbios/Moncho/demult/demult_in_r.R "${OUTPUT_FOLDER}"
+/ngs/software/R/4.2.1-C7/bin/Rscript --vanilla /home/microbios/cbm_cluster_scripts/demult_in_r.R "${OUTPUT_FOLDER}"
