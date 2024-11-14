@@ -21,10 +21,10 @@ inner_join(first_demult, second_demult) |>
   inner_join(PCR_products) |> 
   group_by(Sample_Name) |>
   nest() |> 
-  mutate(walk2 (Sample_Name, data, ~ fastq_writer(
+  mutate(print = walk2 (Sample_Name, data, ~ eDNAfuns::fastq_writer(
     df = .y,
     sequence = seq,    
-    header = Seq.id, 
+    header = header, 
     Qscores = Qscores, 
     file.out = file.path(input_folder,"demult_files", paste0("Sample_",.x, ".fastq")))
                               ))
